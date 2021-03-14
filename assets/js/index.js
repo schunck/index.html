@@ -1,12 +1,13 @@
-$(function () {
+$(function() {
   // 调用 getUserInfo 获取用户基本信息
   getUserInfo()
+
   var layer = layui.layer
 
   // 点击按钮，实现退出功能
-  $('#btnLogout').on('click', function () {
+  $('#btnLogout').on('click', function() {
     // 提示用户是否确认退出
-    layer.confirm('确定退出登录?', { icon: 3, title: '提示' }, function (index) {
+    layer.confirm('确定退出登录?', { icon: 3, title: '提示' }, function(index) {
       //do something
       // 1. 清空本地存储中的 token
       localStorage.removeItem('token')
@@ -24,19 +25,15 @@ function getUserInfo() {
   $.ajax({
     method: 'GET',
     url: '/my/userinfo',
-    // headers 就是请求头配置对象
-    // headers: {
-    //   Authorization: localStorage.getItem('token') || ''
-    // },
-    success: function (res) {
+    success: function(res) {
       if (res.status !== 0) {
         return layui.layer.msg('获取用户信息失败！')
       }
       // 调用 renderAvatar 渲染用户的头像
       renderAvatar(res.data)
     }
-    // // 不论成功还是失败，最终都会调用 complete 回调函数
-    //   complete: function (res) {
+    // 不论成功还是失败，最终都会调用 complete 回调函数
+    // complete: function(res) {
     //   // console.log('执行了 complete 回调：')
     //   // console.log(res)
     //   // 在 complete 回调函数中，可以使用 res.responseJSON 拿到服务器响应回来的数据
@@ -49,7 +46,6 @@ function getUserInfo() {
     // }
   })
 }
-
 
 // 渲染用户的头像
 function renderAvatar(user) {

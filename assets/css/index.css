@@ -54,6 +54,9 @@ a{
   top: 4px;
   margin-right: 10px;
 }
+.layui-nav-item a {
+  font-size: 12px;
+}
 /* 头部和底部的背景色 */
 .layui-layout-admin .layui-header {
   background-color: rgba(0,0,0,0.5);
